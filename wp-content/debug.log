@@ -1,0 +1,210 @@
+[31-Jul-2025 10:56:59 UTC] Array
+(
+    [0] => m
+    [1] => p
+    [2] => posts
+    [3] => w
+    [4] => cat
+    [5] => withcomments
+    [6] => withoutcomments
+    [7] => s
+    [8] => search
+    [9] => exact
+    [10] => sentence
+    [11] => calendar
+    [12] => page
+    [13] => paged
+    [14] => more
+    [15] => tb
+    [16] => pb
+    [17] => author
+    [18] => order
+    [19] => orderby
+    [20] => year
+    [21] => monthnum
+    [22] => day
+    [23] => hour
+    [24] => minute
+    [25] => second
+    [26] => name
+    [27] => category_name
+    [28] => tag
+    [29] => feed
+    [30] => author_name
+    [31] => pagename
+    [32] => page_id
+    [33] => error
+    [34] => attachment
+    [35] => attachment_id
+    [36] => subpost
+    [37] => subpost_id
+    [38] => preview
+    [39] => robots
+    [40] => favicon
+    [41] => taxonomy
+    [42] => term
+    [43] => cpage
+    [44] => post_type
+    [45] => embed
+    [46] => post_format
+    [47] => rest_route
+    [48] => sitemap
+    [49] => sitemap-subtype
+    [50] => sitemap-stylesheet
+    [51] => book_author
+    [52] => bookshelf
+    [53] => book
+    [54] => authors_archive
+)
+
+[31-Jul-2025 10:56:59 UTC] Array
+(
+    [0] => m
+    [1] => p
+    [2] => posts
+    [3] => w
+    [4] => cat
+    [5] => withcomments
+    [6] => withoutcomments
+    [7] => s
+    [8] => search
+    [9] => exact
+    [10] => sentence
+    [11] => calendar
+    [12] => page
+    [13] => paged
+    [14] => more
+    [15] => tb
+    [16] => pb
+    [17] => author
+    [18] => order
+    [19] => orderby
+    [20] => year
+    [21] => monthnum
+    [22] => day
+    [23] => hour
+    [24] => minute
+    [25] => second
+    [26] => name
+    [27] => category_name
+    [28] => tag
+    [29] => feed
+    [30] => author_name
+    [31] => pagename
+    [32] => page_id
+    [33] => error
+    [34] => attachment
+    [35] => attachment_id
+    [36] => subpost
+    [37] => subpost_id
+    [38] => preview
+    [39] => robots
+    [40] => favicon
+    [41] => taxonomy
+    [42] => term
+    [43] => cpage
+    [44] => post_type
+    [45] => embed
+    [46] => post_format
+    [47] => rest_route
+    [48] => sitemap
+    [49] => sitemap-subtype
+    [50] => sitemap-stylesheet
+    [51] => book_author
+    [52] => bookshelf
+    [53] => book
+    [54] => authors_archive
+)
+
+[31-Jul-2025 10:56:59 UTC] Array
+(
+    [0] => m
+    [1] => p
+    [2] => posts
+    [3] => w
+    [4] => cat
+    [5] => withcomments
+    [6] => withoutcomments
+    [7] => s
+    [8] => search
+    [9] => exact
+    [10] => sentence
+    [11] => calendar
+    [12] => page
+    [13] => paged
+    [14] => more
+    [15] => tb
+    [16] => pb
+    [17] => author
+    [18] => order
+    [19] => orderby
+    [20] => year
+    [21] => monthnum
+    [22] => day
+    [23] => hour
+    [24] => minute
+    [25] => second
+    [26] => name
+    [27] => category_name
+    [28] => tag
+    [29] => feed
+    [30] => author_name
+    [31] => pagename
+    [32] => page_id
+    [33] => error
+    [34] => attachment
+    [35] => attachment_id
+    [36] => subpost
+    [37] => subpost_id
+    [38] => preview
+    [39] => robots
+    [40] => favicon
+    [41] => taxonomy
+    [42] => term
+    [43] => cpage
+    [44] => post_type
+    [45] => embed
+    [46] => post_format
+    [47] => rest_route
+    [48] => sitemap
+    [49] => sitemap-subtype
+    [50] => sitemap-stylesheet
+    [51] => book_author
+    [52] => bookshelf
+    [53] => book
+    [54] => authors_archive
+)
+
+[31-Jul-2025 10:57:42 UTC] /Users/josefine/Local Sites/test/app/public/wp-includes/template-canvas.php
+[31-Jul-2025 10:57:42 UTC] PHP Deprecated:  File Theme without header.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a header.php template in your theme. in /Users/josefine/Local Sites/test/app/public/wp-includes/functions.php on line 6121
+[31-Jul-2025 10:57:42 UTC] PHP Deprecated:  File Theme without footer.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a footer.php template in your theme. in /Users/josefine/Local Sites/test/app/public/wp-includes/functions.php on line 6121
+[31-Jul-2025 10:57:43 UTC] /Users/josefine/Local Sites/test/app/public/wp-includes/template-canvas.php
+[31-Jul-2025 10:57:45 UTC] /Users/josefine/Local Sites/test/app/public/wp-includes/template-canvas.php
+[31-Jul-2025 10:57:45 UTC] PHP Deprecated:  File Theme without header.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a header.php template in your theme. in /Users/josefine/Local Sites/test/app/public/wp-includes/functions.php on line 6121
+[31-Jul-2025 10:57:45 UTC] PHP Deprecated:  File Theme without footer.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a footer.php template in your theme. in /Users/josefine/Local Sites/test/app/public/wp-includes/functions.php on line 6121
+[31-Jul-2025 10:57:46 UTC] /Users/josefine/Local Sites/test/app/public/wp-includes/template-canvas.php
+[31-Jul-2025 10:57:49 UTC] /Users/josefine/Local Sites/test/app/public/wp-includes/template-canvas.php
+[31-Jul-2025 10:57:49 UTC] /Users/josefine/Local Sites/test/app/public/wp-includes/template-canvas.php
+[31-Jul-2025 10:57:51 UTC] /Users/josefine/Local Sites/test/app/public/wp-includes/template-canvas.php
+[31-Jul-2025 10:57:51 UTC] /Users/josefine/Local Sites/test/app/public/wp-includes/template-canvas.php
+[31-Jul-2025 10:58:01 UTC] PHP Deprecated:  File Theme without header.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a header.php template in your theme. in /Users/josefine/Local Sites/test/app/public/wp-includes/functions.php on line 6121
+[31-Jul-2025 10:58:01 UTC] PHP Deprecated:  File Theme without footer.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a footer.php template in your theme. in /Users/josefine/Local Sites/test/app/public/wp-includes/functions.php on line 6121
+[31-Jul-2025 11:06:08 UTC] PHP Warning:  Attempt to read property "title" on null in /Users/josefine/Local Sites/test/app/public/wp-includes/class-wp-customize-widgets.php on line 926
+[31-Jul-2025 11:09:36 UTC] PHP Deprecated:  File Theme without header.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a header.php template in your theme. in /Users/josefine/Local Sites/test/app/public/wp-includes/functions.php on line 6121
+[31-Jul-2025 11:09:36 UTC] PHP Deprecated:  File Theme without footer.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a footer.php template in your theme. in /Users/josefine/Local Sites/test/app/public/wp-includes/functions.php on line 6121
+[31-Jul-2025 11:09:38 UTC] PHP Deprecated:  File Theme without header.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a header.php template in your theme. in /Users/josefine/Local Sites/test/app/public/wp-includes/functions.php on line 6121
+[31-Jul-2025 11:09:38 UTC] PHP Deprecated:  File Theme without footer.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a footer.php template in your theme. in /Users/josefine/Local Sites/test/app/public/wp-includes/functions.php on line 6121
+[31-Jul-2025 11:39:42 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "more_link_text" in /Users/josefine/Local Sites/test/app/public/wp-content/themes/dawson-wpcom/single.php:5
+Stack trace:
+#0 /Users/josefine/Local Sites/test/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/josefine/Local Sites/test/app/public/wp-blog-header.php(19): require_once('/Users/josefine...')
+#2 /Users/josefine/Local Sites/test/app/public/index.php(17): require('/Users/josefine...')
+#3 {main}
+  thrown in /Users/josefine/Local Sites/test/app/public/wp-content/themes/dawson-wpcom/single.php on line 5
+[31-Jul-2025 12:50:27 UTC] PHP Warning:  Attempt to read property "title" on null in /Users/josefine/Local Sites/test/app/public/wp-includes/class-wp-customize-widgets.php on line 926
+[31-Jul-2025 12:50:55 UTC] PHP Warning:  Attempt to read property "title" on null in /Users/josefine/Local Sites/test/app/public/wp-includes/class-wp-customize-widgets.php on line 926
+[31-Jul-2025 12:51:52 UTC] PHP Warning:  Attempt to read property "title" on null in /Users/josefine/Local Sites/test/app/public/wp-includes/class-wp-customize-widgets.php on line 926
+[31-Jul-2025 12:54:35 UTC] PHP Warning:  Attempt to read property "title" on null in /Users/josefine/Local Sites/test/app/public/wp-includes/class-wp-customize-widgets.php on line 926
+[31-Jul-2025 12:57:06 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /Users/josefine/Local Sites/test/app/public/wp-includes/load.php on line 1465
+[31-Jul-2025 19:50:40 UTC] Automatic updates starting...
+[31-Jul-2025 19:50:41 UTC] Automatic updates complete.
