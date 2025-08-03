@@ -5,12 +5,18 @@ const autoprefixer = require('autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
+const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
 
 // Paths
 const paths = {
     styles: {
         src: 'assets/scss/**/*.scss',
         dest: 'styles'
+    },
+        scripts: {
+        src: 'assets/js/**/*.js',
+        dest: 'scripts'
     }
 };
 
@@ -25,17 +31,28 @@ function styles() {
         .pipe(gulp.dest(paths.styles.dest))
         .pipe(browserSync.stream());
 }
-
+// Process JS
+function scripts() {
+    return gulp.src(paths.scripts.src)
+        .pipe(sourcemaps.init())
+        .pipe(concat('main.js'))
+        .pipe(uglify())
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(paths.scripts.dest))
+        .pipe(browserSync.stream());
+}
 // Watch files
 function watch() {
     browserSync.init({
         proxy: "http://test.local/" // Replace with your local WP URL
     });
     gulp.watch(paths.styles.src, styles);
+    gulp.watch(paths.scripts.src, scripts);
     gulp.watch("**/*.php").on('change', browserSync.reload);
 }
 
 // Tasks
 exports.styles = styles;
+exports.scripts = scripts;
 exports.watch = watch;
-exports.default = gulp.series(styles, watch);
+exports.default = gulp.series(gulp.parallel(styles, scripts), watch);

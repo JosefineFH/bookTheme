@@ -17,13 +17,40 @@ if (isset($_POST['search_term'])) {
     if (!is_wp_error($response)) {
         $data = json_decode(wp_remote_retrieve_body($response), true);
         $books = $data['items'] ?? [];
-
-
     }
 }
 
 if (isset($_POST['import_book'])) {
     $book_data = json_decode(stripslashes($_POST['import_book']), true);
+
+    $buy_link = $book_data['buyLink'] ?? '';
+    $page_count = $book_data['pageCount'] ?? '';
+    $categories = $book_data['categories'] ?? [];
+
+    if ($buy_link) {
+        // Try fetching extra data from Google Play page
+        $response = wp_remote_get($buy_link);
+
+        if (!is_wp_error($response)) {
+            $html = wp_remote_retrieve_body($response);
+
+            // 1. Extract updated page count if found
+            if (preg_match('/(\d+)\s+pages/i', $html, $matches)) {
+                $updated_page_count = (int) $matches[1];
+                if ($updated_page_count !== (int) $page_count) {
+                    $page_count = $updated_page_count;
+                }
+            }
+
+            // 2. Extract genres like "Fiction / Romance / Contemporary"
+            if (preg_match('/<a[^>]+href="\/store\/books\/category[^"]+"[^>]*>(.*?)<\/a>/is', $html, $cat_matches)) {
+                $extra_genre = trim(strip_tags($cat_matches[1]));
+                if (!in_array($extra_genre, $categories)) {
+                    $categories[] = $extra_genre;
+                }
+            }
+        }
+    }
 
     $title = $book_data['title'] ?? 'Untitled';
     $description = $book_data['description'] ?? '';
@@ -31,15 +58,21 @@ if (isset($_POST['import_book'])) {
     $isbn = $book_data['isbn'] ?? '';
     $authors = $book_data['authors'] ?? [];
     $thumbnail = $book_data['thumbnail'] ?? '';
+    $publisher = $book_data['publisher'] ?? '';
+    $publishedDate = $book_data['publishedDate'] ?? '';
+    $maturityRating = $book_data['maturityRating'] ?? '';
+
     $post_id = wp_insert_post([
-        'post_type'   => 'book',
-        'post_title'  => $title,
-        'post_content'=> $description,
+        'post_type' => 'book',
+        'post_title' => $title,
+        'post_content' => $description,
         'post_status' => 'publish',
-        'post_excerpt'   => $excerpt,
+        'post_excerpt' => $excerpt,
     ]);
+
     // Helper function: insert term or get existing term slug
-    function insert_or_get_term_slug($term_name, $taxonomy) {
+    function insert_or_get_term_slug($term_name, $taxonomy)
+    {
         if (empty($term_name)) {
             return '';
         }
@@ -64,13 +97,13 @@ if (isset($_POST['import_book'])) {
 
     // Get selected or new taxonomy terms
     $bookshelf_slug = sanitize_text_field($_POST['book_tax_bookshelf'] ?? '');
-    $bookshelf_new  = sanitize_text_field($_POST['book_tax_bookshelf_new'] ?? '');
+    $bookshelf_new = sanitize_text_field($_POST['book_tax_bookshelf_new'] ?? '');
 
     $category_slug = sanitize_text_field($_POST['book_tax_category'] ?? '');
-    $category_new  = sanitize_text_field($_POST['book_tax_category_new'] ?? '');
+    $category_new = sanitize_text_field($_POST['book_tax_category_new'] ?? '');
 
     $author_slug = sanitize_text_field($_POST['book_tax_author'] ?? '');
-    $author_new  = sanitize_text_field($_POST['book_tax_author_new'] ?? '');
+    $author_new = sanitize_text_field($_POST['book_tax_author_new'] ?? '');
 
     // Use new term if provided, otherwise fallback to selected
     if (!empty($bookshelf_new)) {
@@ -86,20 +119,61 @@ if (isset($_POST['import_book'])) {
     }
 
     if ($post_id) {
-        if ($bookshelf_slug) wp_set_object_terms($post_id, [$bookshelf_slug], 'bookshelf');
-        if ($category_slug)  wp_set_object_terms($post_id, [$category_slug], 'category');
-        if ($author_slug)    wp_set_object_terms($post_id, [$author_slug], 'book_author');
+        if ($bookshelf_slug)
+            wp_set_object_terms($post_id, [$bookshelf_slug], 'bookshelf');
+        if ($category_slug)
+            wp_set_object_terms($post_id, [$category_slug], 'category');
+        if ($author_slug)
+            wp_set_object_terms($post_id, [$author_slug], 'book_author');
 
+        // publisher
+        update_post_meta($post_id, 'book_publisher', sanitize_text_field($publisher));
+        // Save published date
+        update_post_meta($post_id, 'book_published_date', sanitize_text_field($publishedDate));
+        // Save maturity rating
+        update_post_meta($post_id, 'book_maturity_rating', sanitize_text_field($maturityRating));
         update_post_meta($post_id, 'book_isbn', $isbn);
         update_post_meta($post_id, 'book_authors', implode(', ', $authors));
+        update_post_meta($post_id, 'book_page_count', $page_count);
 
+
+        if (!empty($categories)) {
+            foreach ($categories as $cat_name) {
+                $slug = insert_or_get_term_slug($cat_name, 'category');
+                if ($slug) {
+                    wp_set_object_terms($post_id, [$slug], 'category', true);
+                }
+            }
+        }
         if ($thumbnail) {
-            require_once ABSPATH . 'wp-admin/includes/image.php';
+            $thumbnail = preg_replace('/^http:\/\//', 'https://', $thumbnail);
+
             require_once ABSPATH . 'wp-admin/includes/file.php';
             require_once ABSPATH . 'wp-admin/includes/media.php';
+            require_once ABSPATH . 'wp-admin/includes/image.php';
 
-            $image_id = media_sideload_image($thumbnail, $post_id, null, 'id');
-            set_post_thumbnail($post_id, $image_id);
+            // Download the image temporarily
+            $tmp = download_url($thumbnail);
+
+            if (!is_wp_error($tmp)) {
+                $file_array = [
+                    'name' => 'book-cover' . $isbn . '.jpg',
+                    'tmp_name' => $tmp
+                ];
+
+                $image_id = media_handle_sideload($file_array, $post_id);
+
+                // If image upload is successful, set it as thumbnail
+                if (!is_wp_error($image_id)) {
+                    set_post_thumbnail($post_id, $image_id);
+                    error_log('Thumbnail set successfully.');
+                } else {
+                    error_log('Image sideload error: ' . $image_id->get_error_message());
+                    @unlink($tmp);  // Delete temp file on failure
+                }
+            } else {
+                error_log('Download URL failed: ' . $tmp->get_error_message());
+            }
         }
 
         echo '<div class="notice notice-success"><p>Book "' . esc_html($title) . '" imported successfully!</p></div>';
@@ -125,10 +199,15 @@ if (isset($_POST['import_book'])) {
                 $authors = $info['authors'] ?? [];
                 $description = $info['description'] ?? '';
                 $subtitle = $info['subtitle'] ?? '';
-                $thumbnail = $info['imageLinks']['thumbnail'] ?? '';
+                $image_links = $info['imageLinks'] ?? [];
+                $thumbnail = $image_links['thumbnail'] ?? '';
+                $small_thumbnail = $image_links['smallThumbnail'] ?? '';
                 $industryIds = $info['industryIdentifiers'] ?? [];
                 $isbn = '';
-
+                $pageCount = $info['pageCount'] ?? '';
+                $publisher = $info['publisher'] ?? '';
+                $publishedDate = $info['publishedDate'] ?? '';
+                $maturityRating = $info['maturityRating'] ?? '';
                 foreach ($industryIds as $id) {
                     if ($id['type'] === 'ISBN_13') {
                         $isbn = $id['identifier'];
@@ -137,12 +216,18 @@ if (isset($_POST['import_book'])) {
                 }
 
                 $book_payload = json_encode([
-                    'title'       => $title,
+                    'title' => $title,
                     'description' => $description,
-                    'isbn'        => $isbn,
-                    'authors'     => $authors,
-                    'thumbnail'   => $thumbnail,
-                    'excerpt'   => $subtitle,
+                    'isbn' => $isbn,
+                    'authors' => $authors,
+                    'thumbnail' => $thumbnail,
+                    'thumbnail_small' => $small_thumbnail,
+                    'excerpt' => $subtitle,
+                    'pageCount' => $pageCount,
+                    'publisher' => $publisher,
+                    'publishedDate' => $publishedDate,
+                    'maturityRating' => $maturityRating,
+                    'categories' => $info['categories'] ?? [],
                 ]);
                 ?>
                 <li style="margin: 1em 0; padding: 1em; background: #fff; border: 1px solid #ccc;">
