@@ -1,0 +1,84 @@
+.single-library_books {
+    padding: 0 10px;
+    background-color: var(--background-color);
+    color: var(--primary-category-text-color);
+
+    a {
+        color: var(--primary-category-text-color);
+    }
+
+    hr {
+        max-width: 1000px;
+        margin: 4rem auto;
+    }
+
+    .library_book_wrapper {
+        margin-top: 5rem;
+
+    }
+
+    .book-details {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+
+        @media(min-width: 768px) {
+            flex-direction: row;
+        }
+
+        .img-wrapper {
+            padding: 0 20px;
+            margin: auto;
+
+            img {
+                width: 75%;
+                display: block;
+                margin: auto;
+
+            }
+
+            @media(min-width: 768px) {
+                width: 35%;
+                margin: auto;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+        .book-meta {
+            width: 75%;
+            margin: auto;
+
+            @media(min-width: 768px) {
+                width: fit-content;
+            }
+            h1{
+                font-family: 'Baneberries Delight', sans-serif;
+                margin: unset;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            p {
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            .series_author-box{
+                display: flex;
+                align-items: center;
+                p, a{
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        .rating-stars {
+            font-size: 1.5rem;
+            color: gold;
+            letter-spacing: 0.1em;
+        }
+
+    }
+}

@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap');
+
+html {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body {
+
+    background-color: #f6f5f0;
+    color: #191919;
+    font-family: Inter, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+hr{
+    margin: 60px 0;
+}
+p{
+    font-size: 18px;
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+.book-details {
+    max-width: 1000px;
+    margin: auto;
+}
+
+figure.wp-block-image.aligncenter.size-full.is-resized{
+    margin: auto;
+}
+
+    .wrap{
+        max-width: 1000px;
+        margin: auto;
+    }

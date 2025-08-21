@@ -1,0 +1,358 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap");
+/* _typography.scss */
+/* 1) Register font globally */
+@font-face {
+  font-family: "Baneberries Delight";
+  src: url("/wp-content/themes/books/assets/fonts/MagilioRegular-Yzv2O.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* 2) Apply to the whole site */
+body {
+  font-family: "Baneberries Delight", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 400;
+  color: #000;
+}
+
+/* 3) Override headings if needed */
+h1 {
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 40px;
+  margin: auto;
+  letter-spacing: -1px;
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+
+html {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body {
+  background-color: #f6f5f0;
+  color: #191919;
+  font-family: Inter, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+hr {
+  margin: 60px 0;
+}
+
+p {
+  font-size: 18px;
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.book-details {
+  max-width: 1000px;
+  margin: auto;
+}
+
+figure.wp-block-image.aligncenter.size-full.is-resized {
+  margin: auto;
+}
+
+.wrap {
+  max-width: 1000px;
+  margin: auto;
+}
+
+#site-header {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+#site-header .site-branding .site-title {
+  font-size: 24px;
+}
+#site-header .site-branding .site-title a {
+  text-decoration: none;
+}
+#site-header #site-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+#site-header #site-navigation ul a {
+  font-size: 20px;
+  text-decoration: none;
+}
+#site-header #site-navigation ul a:hover {
+  padding-bottom: 5px;
+  border-bottom: 1px solid;
+}
+
+.tab {
+  overflow: hidden;
+  display: flex;
+}
+.tab button {
+  background-color: var(--primary-category-text-color);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+.tab button:hover {
+  background-color: #ddd;
+}
+.tab button.active {
+  background-color: var(--secondary-color);
+  color: var(--primary-category-text-color);
+}
+.tab .tablinks {
+  font-size: 18px;
+}
+
+.tab-wrapper {
+  background-color: var(--primary-category-text-color);
+  color: var(--background-color);
+}
+.tab-wrapper .tabcontent {
+  height: 0;
+  overflow: hidden; /* hide the spill */
+  padding: 6px 12px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-top: none;
+}
+.tab-wrapper .is-open {
+  height: auto; /* let it grow to its content */
+  overflow: visible; /* optional */
+}
+.tab-wrapper .panel {
+  padding: 20px;
+  max-width: 900px;
+}
+.tab-wrapper h2 {
+  margin: 0;
+  padding: 0;
+}
+.tab-wrapper p {
+  font-size: 18px;
+}
+.tab-wrapper a .btn {
+  color: var(--background-color);
+}
+
+.review-content {
+  margin-bottom: 40px;
+}
+
+.btn {
+  border: none; /* Remove borders */
+  background-color: var(--secondary-color);
+  padding: 14px 28px; /* Add some padding */
+  cursor: pointer; /* Add a pointer cursor on mouse-over */
+}
+
+.content-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  width: 32%;
+}
+.card a img {
+  width: 100%;
+}
+.card h2 {
+  font-family: "Baneberries Delight", sans-serif;
+}
+
+.term_list {
+  padding: 0;
+}
+.term_list li {
+  list-style: none;
+}
+@media (min-width: 654px) {
+  .term_list li {
+    width: 100%;
+  }
+}
+.term_list .card {
+  width: 100%;
+  position: relative;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+  overflow: hidden;
+}
+@media (min-width: 654px) {
+  .term_list .card img {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.term_list .card a {
+  text-decoration: none;
+}
+.term_list .card a:hover {
+  text-decoration: underline;
+}
+@media (min-width: 654px) {
+  .term_list .card a {
+    display: flex;
+  }
+}
+@media (min-width: 654px) {
+  .term_list .card a .card-header {
+    width: 50%;
+  }
+}
+.term_list .card a .card-header img {
+  opacity: 0.4;
+}
+.term_list .card a .card-body {
+  padding: 1rem;
+}
+@media (min-width: 654px) {
+  .term_list .card a .card-body {
+    width: 90%;
+    padding-left: 1rem;
+  }
+}
+.term_list .card a .card-body h3 {
+  margin-top: 0;
+  text-transform: capitalize;
+}
+
+.single-library_books {
+  padding: 0 10px;
+  background-color: var(--background-color);
+  color: var(--primary-category-text-color);
+}
+.single-library_books a {
+  color: var(--primary-category-text-color);
+}
+.single-library_books hr {
+  max-width: 1000px;
+  margin: 4rem auto;
+}
+.single-library_books .library_book_wrapper {
+  margin-top: 5rem;
+}
+.single-library_books .book-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+@media (min-width: 768px) {
+  .single-library_books .book-details {
+    flex-direction: row;
+  }
+}
+.single-library_books .book-details .img-wrapper {
+  padding: 0 20px;
+  margin: auto;
+}
+.single-library_books .book-details .img-wrapper img {
+  width: 75%;
+  display: block;
+  margin: auto;
+}
+@media (min-width: 768px) {
+  .single-library_books .book-details .img-wrapper {
+    width: 35%;
+    margin: auto;
+  }
+  .single-library_books .book-details .img-wrapper img {
+    width: 100%;
+  }
+}
+.single-library_books .book-details .book-meta {
+  width: 75%;
+  margin: auto;
+}
+@media (min-width: 768px) {
+  .single-library_books .book-details .book-meta {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+.single-library_books .book-details .book-meta h1 {
+  font-family: "Baneberries Delight", sans-serif;
+  margin: unset;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.single-library_books .book-details .book-meta p {
+  font-size: 16px;
+  font-weight: 600;
+}
+.single-library_books .book-details .book-meta .series_author-box {
+  display: flex;
+  align-items: center;
+}
+.single-library_books .book-details .book-meta .series_author-box p, .single-library_books .book-details .book-meta .series_author-box a {
+  margin-right: 5px;
+}
+.single-library_books .book-details .rating-stars {
+  font-size: 1.5rem;
+  color: gold;
+  letter-spacing: 0.1em;
+}
+
+.single {
+  max-width: 1000px;
+  margin: auto;
+}
+.single .content {
+  max-width: 700px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.page .wrap {
+  max-width: 1000px;
+  padding: 20px;
+  margin: auto;
+}
+.page .wrap h1 {
+  text-transform: capitalize;
+  font-weight: 300;
+  font-family: "Baneberries Delight", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  margin: 0;
+  margin-bottom: 3rem;
+  text-align: center;
+  width: 100%;
+}
+.page .wrap .content {
+  max-width: 800px;
+  margin: auto;
+}
+.page .wrap .content ul.term_list li {
+  list-style: none;
+}
+
+.archive .archive-header h1 {
+  font-family: "Baneberries Delight", sans-serif;
+  margin-left: 0;
+}
+/*# sourceMappingURL=style.css.map */

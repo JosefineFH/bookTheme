@@ -1,0 +1,27 @@
+.page {
+    .wrap{
+        max-width: 1000px;
+        padding: 20px;
+        margin: auto;
+        h1{
+            text-transform: capitalize;
+            font-weight: 300;
+            font-family: 'Baneberries Delight', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            margin: 0;
+            // margin-bottom: 5rem;
+            margin-bottom: 3rem ;
+            text-align: center;
+            width: 100%;
+        }
+        .content{
+            max-width: 800px;
+            margin: auto;
+
+            ul.term_list{
+                li{
+                    list-style: none;
+                }
+            }
+        }
+    }
+}

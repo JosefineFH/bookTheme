@@ -1,0 +1,84 @@
+.tab {
+    overflow: hidden;
+    display: flex;
+
+    button {
+        background-color: var(--primary-category-text-color);
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+
+        &:hover {
+            background-color: #ddd;
+        }
+
+        &.active {
+            background-color: var(--secondary-color);
+            color: var(--primary-category-text-color);
+        }
+
+    }
+
+    .tablinks {
+        font-size: 18px;
+    }
+
+
+}
+
+.tab-wrapper {
+    background-color: var(--primary-category-text-color);
+    color: var(--background-color);
+
+    .tabcontent {
+    height: 0;
+    overflow: hidden;          /* hide the spill */
+    padding: 6px 12px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-top: none;
+    }
+
+    .is-open {
+          height: auto;              /* let it grow to its content */
+  overflow: visible;         /* optional */
+    }
+
+    .panel {
+        padding: 20px;
+        max-width: 900px;
+    }
+    h2{
+        margin: 0;
+        padding: 0;
+    }
+    p{
+        font-size: 18px;
+    }
+    a .btn{
+        color: var(--background-color);
+    }
+}
+.review-content{
+    margin-bottom: 40px;
+}
+// .permlink_button {
+//     padding: 20px;
+//     background-color: var(--secondary-color);
+//     text-decoration: none;
+//     border: 1px solid var(--secondary-color);
+//     font-weight: 500;
+//     &:hover {
+//         background-color: var(--primary-category-text-color);
+//         color: var(--secondary-color);
+
+//     }
+// }
+
+.btn {
+  border: none; /* Remove borders */
+background-color: var(--secondary-color);
+  padding: 14px 28px; /* Add some padding */
+  cursor: pointer; /* Add a pointer cursor on mouse-over */
+}

@@ -23,8 +23,7 @@
 /wp-trackback.php
 /xmlrpc.php
 
-/wp-content/*
-
+/wp-content/node_modules
 
 
 /.idea/
