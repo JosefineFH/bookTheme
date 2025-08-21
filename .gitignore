@@ -23,8 +23,7 @@
 /wp-trackback.php
 /xmlrpc.php
 
-/wp-content/node_modules
-
-
+wp-content/themes/books/node_modules
+wp-content/themes/books/languages
 /.idea/
 /.dev/
