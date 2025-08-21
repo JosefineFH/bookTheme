@@ -25,11 +25,7 @@
 
 /wp-content/*
 
-!/wp-content/themes/
-/wp-content/themes/*
-!/wp-content/themes/dawson-wpcom/
-/wp-content/themes/dawson-wpcom/deploy
-/wp-content/themes/dawson-wpcom/node_modules
+
 
 /.idea/
 /.dev/
